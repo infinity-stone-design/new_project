@@ -18,7 +18,7 @@
         <form id = "form">
           연령 </br>
           <div class = "detail">
-          <input type = "checkbox"> 영유아 </br>
+          <input type = "checkbox"> 유아 </br>
           <input type = "checkbox"> 청소년 </br>
           <input type = "checkbox"> 노인 </br>
           </div>
@@ -63,11 +63,12 @@
       <div id = "next">
         <router-view></router-view>
       </div>
-    
-   
 
   </div>
+
+
 </template>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');

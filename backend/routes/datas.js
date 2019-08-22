@@ -6,8 +6,8 @@ var connection = mysql.createConnection({
     host: '127.0.0.1',
     port: 3306,
     user: 'root',   
-    password: 'duddlsdud1',
-    database: 'data'  
+    password: 'ajou',
+    database: 'project'  
   }); 
   
   connection.connect(function (err) {   
@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
   });
 
 router.get('/', function (req, res, next) {
-    connection.query('SELECT * FROM data.table', function(err, datas, fields) {
+    connection.query('SELECT * FROM project.project_table', function(err, datas, fields) {
         if(!err){
           console.log(datas);
           res.send(datas);
