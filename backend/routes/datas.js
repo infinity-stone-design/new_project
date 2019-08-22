@@ -19,9 +19,9 @@ var connection = mysql.createConnection({
   });
 
 router.get('/', function (req, res, next) {
-    connection.query('SELECT * FROM data.table', function(err, datas, fields) {
+    connection.query('SELECT * FROM data.data_table', function(err, datas, fields) {
         if(!err){
-          console.log(datas);
+          
           res.send(datas);
         }
         else
@@ -29,5 +29,18 @@ router.get('/', function (req, res, next) {
       });
  
 });
-
+router.get('/:id', function (req, res, next) {
+    var id= parseInt(req.params.id, 10)
+    console.log('dsds'+id)
+    connection.query('SELECT * FROM data.data_table WHERE id ="'+id+'"', function(err, print_data, fields) {
+        if(!err){
+           
+          console.log(print_data);
+          res.send(print_data);
+        }
+        else
+          console.log('Error!!', err);
+      });
+ 
+});
 module.exports = router;

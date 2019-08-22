@@ -2,10 +2,7 @@
 
 <template>
 <div class="wrap">
-   
-  <table>
-    
-  <tr v-for="d in datas">
+  
     <table class = "table">
       <tr>
         <span>{{d.title}}</span>
@@ -14,8 +11,6 @@
         <span>{{d.subtitle}}</span>
       </tr>
     </table>
-  </tr>
-</table>
  
 </div>
   
@@ -26,16 +21,16 @@
 
 
 export default {
-  created () {
-    // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.          
-    this.$http.get('/api/datas')
+  created (){
+    var id = this.$route.params.id;
+    this.$http.get('/api/datas/'+id)
         .then((response) => {
-          this.datas = response.data
+          this.d = response.data[0]
         })
   },
   data () {
     return {
-      datas: []
+      d: []
     }
   },
    
