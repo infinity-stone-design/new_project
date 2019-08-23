@@ -4,7 +4,7 @@
   <div id="app">
     <div id = "top">
       <form id = "search">
-        <img src = "./assets/logo.png" id = "logo">
+        <router-link :to="{name: 'index'}"><img src = "./assets/logo.png" id = "logo"></router-link>
         <input type = "text" id = "text">
         <img src = "./assets/search.png" id = "img">
       </form>
@@ -61,7 +61,7 @@
       </div>
 
       <div id = "next">
-        <router-view></router-view>
+        <router-view/>
       </div>
     
    

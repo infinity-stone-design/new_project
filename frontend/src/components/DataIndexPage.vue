@@ -8,7 +8,9 @@
   <tr v-for="d in datas">
     <table class = "table">
       <tr>
+        <router-link :to="{name: 'detail', params: {id: d.id}}">
         <span>{{d.title}}</span>
+        </router-link>
       </tr>
       <tr>
         <span>{{d.subtitle}}</span>
@@ -54,6 +56,7 @@ export default {
   padding : 10px;
   background-color : white;
   margin-left : 50px;
-}
 
+
+}
 </style>
