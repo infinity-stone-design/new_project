@@ -84,7 +84,7 @@
   width : 42px;
   height : 42px;
   top : -16px;
-  left : -8px;
+  left : -3px;
   border : 2px solid #58ACFA;
 }
 #search{
