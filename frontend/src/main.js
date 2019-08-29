@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import {router}  from './routes/index.js'
 import axios from 'axios'
+import { PaginationControl, PaginationPage } from 'vue-smart-pagination'
+
+Vue.component('PaginationControl', PaginationControl)
+Vue.component('PaginationPage', PaginationPage)
 
 Vue.config.productionTip = false
 

@@ -69,6 +69,7 @@
   </div>
 </template>
 
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');
 
@@ -96,21 +97,21 @@
 #side_title{
   background-color : white;
   color : #58ACFA;
+  font-size : 25px;
   border-bottom : 2px solid #BDBDBD;
+   width : 150px;
+   
 }
 #form{
-  margin-left : 20px;
+ text-align: left;
   font-size: 20px;
   line-height: 1.5em;
-}
-#side{
-  font-family: 'Nanum Gothic', sans-serif;
   width : 150px;
   height : 850px;
-  font-size : 25px;
-  float : left;
-  background-color : white;
-  border : 2px solid #F2F2F2;
+  
+}
+#side{
+  width : 150px;
 }
 #top{
   width : 1500px;
@@ -132,9 +133,10 @@
 }
 #next{
   width : 1300px;
-  height : 850px;
-  float : left;
+  height : 960px;
+  margin-left: 175px;
   background-color : #F2F2F2;
+  
 }
 
 

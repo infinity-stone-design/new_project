@@ -8,9 +8,11 @@
        <span>{{d.title}}</span>
       </tr>
       <tr>
+        <table id='side'>
         <side id="side">
          <a id="a">작성자 : 관리자</a>  <a id="a"> | </a>  <a id="a">접수기간 : 2019.08.09 ~ 2019.08.20</a>
         </side>
+        </table>
         <content id="content">
           <tr>
               <c id="detail">세부페이지<링크></c>
@@ -65,16 +67,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');
 @import url('https://fonts.googleapis.com/css?family=Sunflower:300&display=swap&subset=korean');
-.table{
-  font-family: 'Sunflower', sans-serif;
-  width : 1000px;
-  height : 80px;
-  font-size : 20px;
-  border : 1px solid #BDBDBD;
-  padding : 10px;
-  background-color : white;
-  margin-left : 50px;
-}
+
 #title{
   font-family: 'Nanum Gothic', sans-serif;
   width : 1000px;
@@ -101,7 +94,7 @@ export default {
   font-family: 'Nanum Gothic', sans-serif;
   width : 1000px;
   font-size : 15px;
-  
+ 
   margin-right : 20px;
 }
 #category{
