@@ -2,11 +2,15 @@
 
 <template>
 <div class="wrap">
-<table  cellspacing = '10'>
+   
+  <table>
+    
   <tr v-for="d in datas">
     <table class = "table">
       <tr>
+        <router-link :to="{name: 'detail', params: {id: d.id}}">
         <span>{{d.title}}</span>
+        </router-link>
       </tr>
       <tr>
         <span>{{d.subtitle}}</span>
@@ -14,13 +18,15 @@
     </table>
   </tr>
 </table>
-
+ 
 </div>
   
   
 </template>
 
 <script>
+
+
 export default {
   created () {
     // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.          
@@ -33,8 +39,10 @@ export default {
     return {
       datas: []
     }
-  }
+  },
+   
 }
+
 </script>
 <style>
 
@@ -48,6 +56,7 @@ export default {
   padding : 10px;
   background-color : white;
   margin-left : 50px;
-}
 
+
+}
 </style>
