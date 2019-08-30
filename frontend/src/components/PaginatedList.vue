@@ -1,4 +1,5 @@
 <template>
+
 <table>
  <tr v-for="d in paginatedData" :key="d.id">
     <table class = "table">
@@ -62,11 +63,17 @@ export default {
       if (listLeng % listSize > 0) page += 1; 
       return page; 
     }, 
+    filteredList() {
+      return this.listArray.filter(data => {
+        return data.title.toLowerCase().includes(this.message.toLowerCase())
+      })
+    },
     paginatedData () { 
       const start = this.pageNum * this.pageSize, 
       end = start + this.pageSize; 
-      return this.listArray.slice(start, end); 
-    },
+      return this.filteredList.slice(start, end); 
+    }
+    
   } 
 } 
 </script> 
