@@ -2,11 +2,9 @@
 
 <template>
 <div class="wrap">
-   
-  
- 
+  {{returnMessage}}
   <paginated-list :list-array="pageArray"/>
-
+  
 
 </div>
 
@@ -22,20 +20,29 @@ export default {
     components:{
       PaginatedList
     },
+    props:{
+      message: { 
+        type: String, 
+        required: true,
+      } 
+    },
     created () {
-      // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.          
+      // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.   
         this.$http.get('/api/datas')
           .then((response) => {
-           
             this.pageArray = response.data;
         })
     },
     data () {
     return {
-    
       pageArray: []
     }
-  }
+    },
+    computed:{
+      returnMessage(){
+        return this.message;
+      }
+    }
 }
 </script>
 
