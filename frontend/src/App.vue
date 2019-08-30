@@ -4,7 +4,7 @@
   <div id="app">
     <div id = "top">
       <form id = "search">
-        <img src = "./assets/logo.png" id = "logo">
+        <router-link :to="{name: 'index'}"><img src = "./assets/logo.png" id = "logo"></router-link>
         <input type = "text" id = "text">
         <img src = "./assets/search.png" id = "img">
       </form>
@@ -61,13 +61,14 @@
       </div>
 
       <div id = "next">
-        <router-view></router-view>
+        <router-view/>
       </div>
     
    
 
   </div>
 </template>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');
@@ -83,7 +84,7 @@
   width : 42px;
   height : 42px;
   top : -16px;
-  left : -8px;
+  left : -3px;
   border : 2px solid #58ACFA;
 }
 #search{
@@ -96,21 +97,21 @@
 #side_title{
   background-color : white;
   color : #58ACFA;
+  font-size : 25px;
   border-bottom : 2px solid #BDBDBD;
+   width : 150px;
+   
 }
 #form{
-  margin-left : 20px;
+ text-align: left;
   font-size: 20px;
   line-height: 1.5em;
-}
-#side{
-  font-family: 'Nanum Gothic', sans-serif;
   width : 150px;
   height : 850px;
-  font-size : 25px;
-  float : left;
-  background-color : white;
-  border : 2px solid #F2F2F2;
+  
+}
+#side{
+  width : 150px;
 }
 #top{
   width : 1500px;
@@ -132,9 +133,10 @@
 }
 #next{
   width : 1300px;
-  height : 850px;
-  float : left;
+  height : 960px;
+  margin-left: 175px;
   background-color : #F2F2F2;
+  
 }
 
 
