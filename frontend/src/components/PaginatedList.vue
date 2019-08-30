@@ -31,6 +31,10 @@ export default {
      } 
    }, 
   props: {
+    message: {
+      type: String,
+      required: true
+    },
     listArray: {
       type: Array, 
       required: true 
@@ -62,7 +66,7 @@ export default {
       const start = this.pageNum * this.pageSize, 
       end = start + this.pageSize; 
       return this.listArray.slice(start, end); 
-    } 
+    },
   } 
 } 
 </script> 

@@ -5,8 +5,10 @@
     <div id = "top">
       <form id = "search">
         <router-link :to="{name: 'index'}"><img src = "./assets/logo.png" id = "logo"></router-link>
-        <input type = "text" id = "text">
+        <input id = "text" v-model = "message" placeholder="검색어 입력">
         <img src = "./assets/search.png" id = "img">
+        
+        
       </form>
     </div>
       <div id = "side">
@@ -61,13 +63,26 @@
       </div>
 
       <div id = "next">
-        <router-view/>
+        <router-view v-bind:message="message"/>
       </div>
     
    
 
   </div>
 </template>
+
+<script>
+export default {
+    name: 'main-page',
+    
+    data(){
+        return {
+          message : ''
+        }
+    }
+}
+
+</script>
 
 
 <style>
