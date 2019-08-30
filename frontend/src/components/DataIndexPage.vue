@@ -2,8 +2,7 @@
 
 <template>
 <div class="wrap">
-  {{returnMessage}}
-  <paginated-list :list-array="pageArray"/>
+  <paginated-list v-bind:listArray="pageArray" v-bind:message="message"/>
   
 
 </div>
@@ -35,13 +34,9 @@ export default {
     },
     data () {
     return {
+      message : '',
       pageArray: []
     }
-    },
-    computed:{
-      returnMessage(){
-        return this.message;
-      }
     }
 }
 </script>
