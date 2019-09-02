@@ -1,4 +1,5 @@
 <template>
+
 <table>
  
  <tr v-for="d in paginatedData" :key="d.id">
@@ -74,17 +75,7 @@ export default {
         })
       },
     filteredList() {
-      if(this.checkArray.length==0) return this.listArray;
-    
-      //var jsonEncoding=JSON.stringify(arr);
-      /*for(let i=0; i<this.checkArray.length; i++)
-      {
-          arr.push(this.listArray.filter(data => {
-          return data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
-        }))
-      }*/
-    
-    
+      if(this.checkArray.length==0) return this.listArray;   
       return this.listArray.filter(data => {
       var result=null;
       let i=0;
@@ -95,8 +86,6 @@ export default {
       }
           return result;
         });
-        
-      
     },
     paginatedData () { 
       const start = this.pageNum * this.pageSize, 

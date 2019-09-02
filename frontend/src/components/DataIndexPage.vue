@@ -2,12 +2,8 @@
 
 <template>
 <div class="wrap">
-   <paginated-list v-bind:listArray="pageArray" v-bind:checkArray="checkArray" v-bind:message ="message"/>
-
-
+  <paginated-list v-bind:listArray="pageArray" v-bind:checkArray="checkArray" v-bind:message ="message"/>
 </div>
-
-  
   
 </template>
 
@@ -28,12 +24,12 @@ export default {
       type: Array, 
       required: true 
     }
+
     },
     created () {
-      // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.          
+      // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.   
         this.$http.get('/api/datas')
           .then((response) => {
-           
             this.pageArray = response.data;
         })
     },
@@ -51,7 +47,6 @@ export default {
       }
       
     }
-
 }
 </script>
 
