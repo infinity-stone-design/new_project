@@ -2,12 +2,8 @@
 
 <template>
 <div class="wrap">
-  <paginated-list v-bind:listArray="pageArray" v-bind:message="message"/>
-  
-
+  <paginated-list v-bind:listArray="pageArray" v-bind:checkArray="checkArray" v-bind:message ="message"/>
 </div>
-
-  
   
 </template>
 
@@ -15,15 +11,20 @@
 import axios from 'axios'
 import PaginatedList from './PaginatedList'
 export default {
-    name: 'simple-pagination',
+    name: 'data-index-page',
     components:{
       PaginatedList
     },
-    props:{
-      message: { 
-        type: String, 
-        required: true,
-      } 
+    props: {
+      message:{
+        type:String,
+        required : true,
+      },
+    checkArray: {
+      type: Array, 
+      required: true 
+    }
+
     },
     created () {
       // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.   
@@ -35,16 +36,25 @@ export default {
     data () {
     return {
       message : '',
-      pageArray: []
+      pageArray: [],
+      checkArray: []
+
     }
+  },
+  computed:{
+      returnArray(){
+        return this.checkArray;
+      }
+      
     }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Sunflower:300&display=swap&subset=korean');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');
+
 .table{
-  font-family: 'Sunflower', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   width : 1000px;
   height : 80px;
   font-size : 20px;

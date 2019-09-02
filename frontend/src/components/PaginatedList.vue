@@ -1,6 +1,7 @@
 <template>
 
 <table>
+ 
  <tr v-for="d in paginatedData" :key="d.id">
     <table class = "table">
       <tr>
@@ -28,13 +29,14 @@ export default {
   name: 'paginated-list',
   data () { 
      return { 
-       pageNum: 0 
+       pageNum: 0,
+       checkArray: []
      } 
    }, 
   props: {
     message: {
       type: String,
-      required: true
+      required : true,
     },
     listArray: {
       type: Array, 
@@ -44,7 +46,11 @@ export default {
       type: Number, 
       required: false, 
       default: 10 
-    } 
+    },
+    checkArray: {
+      type: Array, 
+      required: true 
+    }
   }, 
   methods: { 
     nextPage () { 
@@ -62,18 +68,30 @@ export default {
   
       if (listLeng % listSize > 0) page += 1; 
       return page; 
-    }, 
+      }, 
+      searchFilter(){
+        return this.listArray.filter(data => {
+          return data.title.toLowerCase().includes(this.message.toLowerCase())
+        })
+      },
     filteredList() {
+      if(this.checkArray.length==0) return this.listArray;   
       return this.listArray.filter(data => {
-        return data.title.toLowerCase().includes(this.message.toLowerCase())
-      })
+      var result=null;
+      let i=0;
+      while(i<this.checkArray.length)
+      {
+        result+=data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
+        i++
+      }
+          return result;
+        });
     },
     paginatedData () { 
       const start = this.pageNum * this.pageSize, 
       end = start + this.pageSize; 
       return this.filteredList.slice(start, end); 
     }
-    
   } 
 } 
 </script> 
