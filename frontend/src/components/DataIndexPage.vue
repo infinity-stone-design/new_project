@@ -2,9 +2,7 @@
 
 <template>
 <div class="wrap">
-   <span>체크한 나이: {{ checkArray }}</span>
-  
-  <paginated-list v-bind:listArray="pageArray" v-bind:checkArray="checkArray"/>
+   <paginated-list v-bind:listArray="pageArray" v-bind:checkArray="checkArray" v-bind:message ="message"/>
 
 
 </div>
@@ -22,6 +20,10 @@ export default {
       PaginatedList
     },
     props: {
+      message:{
+        type:String,
+        required : true,
+      },
     checkArray: {
       type: Array, 
       required: true 
@@ -37,6 +39,7 @@ export default {
     },
     data () {
     return {
+      message : '',
       pageArray: [],
       checkArray: []
 

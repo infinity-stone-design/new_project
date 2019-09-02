@@ -5,7 +5,7 @@
     <div id = "top">
       <form id = "search">
         <router-link :to="{name: 'index'}"><img src = "./assets/logo.png" id = "logo"></router-link>
-        <input type = "text" id = "text">
+        <input type = "text" v-model = "message" id = "text" placeholder="검색어 입력">
         <img src = "./assets/search.png" id = "img">
       </form>
     </div>
@@ -120,7 +120,7 @@
       </div>
 
       <div id = "next">
-        <router-view v-bind:checkArray="checkedAge" />
+        <router-view v-bind:checkArray="checkedAge" v-bind:message="message"/>
       </div>
     
    
@@ -135,7 +135,7 @@ export default {
    data() {
      return{
       checkedAge: [],
-
+      message : ''
      }
   }
 }

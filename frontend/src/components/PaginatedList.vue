@@ -1,11 +1,6 @@
 <template>
 <table>
-  <span>체크한 나이2: {{ checkArray }}</span>
-  <br/>
-  <span> filter: {{ filteredList }}</span>
-  <br/>
-  <span> filter??: {{ paginatedData[0] }}</span>
-  
+ 
  <tr v-for="d in paginatedData" :key="d.id">
     <table class = "table">
       <tr>
@@ -38,6 +33,10 @@ export default {
      } 
    }, 
   props: {
+    message: {
+      type: String,
+      required : true,
+    },
     listArray: {
       type: Array, 
       required: true 
@@ -68,26 +67,36 @@ export default {
   
       if (listLeng % listSize > 0) page += 1; 
       return page; 
-    }, 
-   filteredList() {
-    if(this.checkArray.length===0) return this.listArray;
-    var arr=[];
-    /*for(let i=0; i<this.checkArray.length; i++)
-    {
-        arr.push(this.listArray.filter(data => {
-        return data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
-      }))
-    }*/
-    let i=0;
-    while(i<this.checkArray.length)
-    {
-      arr.push(this.listArray.filter(data => {
-        return data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
-      }));
-      i++
-    }
-  //  JSON.parse(arr);
-    return arr;
+      }, 
+      searchFilter(){
+        return this.listArray.filter(data => {
+          return data.title.toLowerCase().includes(this.message.toLowerCase())
+        })
+      },
+    filteredList() {
+      if(this.checkArray.length==0) return this.listArray;
+    
+      //var jsonEncoding=JSON.stringify(arr);
+      /*for(let i=0; i<this.checkArray.length; i++)
+      {
+          arr.push(this.listArray.filter(data => {
+          return data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
+        }))
+      }*/
+    
+    
+      return this.listArray.filter(data => {
+      var result=null;
+      let i=0;
+      while(i<this.checkArray.length)
+      {
+        result+=data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
+        i++
+      }
+          return result;
+        });
+        
+      
     },
     paginatedData () { 
       const start = this.pageNum * this.pageSize, 
