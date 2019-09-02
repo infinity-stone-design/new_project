@@ -16,58 +16,80 @@
           </div>
         </div>
         <form id = "form">
-          연령 </br>
+          연령 <br/>
           <div class = "detail">
-          <input type = "checkbox"> 영유아 </br>
-          <input type = "checkbox"> 청소년 </br>
-          <input type = "checkbox"> 노인 </br>
+          <input type = "checkbox" id="영유아" value="영유아" v-model="checkedAge">
+          <label for="영유아"> 영유아 </label>
+           <br/>
+          <input type = "checkbox" id="청소년" value="청소년" v-model="checkedAge"> 
+          <label for="청소년"> 청소년 </label>
+          <br/>
+          <input type = "checkbox" id="노인" value="노인" v-model="checkedAge"> 
+          <label for ="노인"> 노인 </label>
+           <br/>
           </div>
-          지역 </br>
+          지역 <br/>
           <div class = "detail">
-          <input type = "checkbox"> 서울특별시 </br>
-          <input type = "checkbox"> 부산광역시 </br>
-          <input type = "checkbox"> 광주광역시 </br>
-          <input type = "checkbox"> 대구광역시 </br>
-          <input type = "checkbox"> 인천광역시 </br>
-          <input type = "checkbox"> 대전광역시 </br>
-          <input type = "checkbox"> 울산광역시 </br>
-          <input type = "checkbox"> 경기도 </br>
-          <input type = "checkbox"> 충청북도 </br>
-          <input type = "checkbox"> 충청남도 </br>
-          <input type = "checkbox"> 강원도 </br>
-          <input type = "checkbox"> 경상북도 </br>
-          <input type = "checkbox"> 경상남도 </br>
-          <input type = "checkbox"> 전라북도 </br>
-          <input type = "checkbox"> 전라남도 </br>
-          <input type = "checkbox"> 제주도 </br>
+          <input type = "checkbox"> 서울특별시 <br/>
+          <input type = "checkbox"> 부산광역시 <br/>
+          <input type = "checkbox"> 광주광역시 <br/>
+          <input type = "checkbox"> 대구광역시 <br/>
+          <input type = "checkbox"> 인천광역시 <br/>
+          <input type = "checkbox"> 대전광역시 <br/>
+          <input type = "checkbox"> 울산광역시 <br/>
+          <input type = "checkbox"> 경기도 <br/>
+          <input type = "checkbox"> 충청북도 <br/>
+          <input type = "checkbox"> 충청남도 <br/>
+          <input type = "checkbox"> 강원도 <br/>
+          <input type = "checkbox"> 경상북도 <br/>
+          <input type = "checkbox"> 경상남도 <br/>
+          <input type = "checkbox"> 전라북도 <br/>
+          <input type = "checkbox"> 전라남도 <br/>
+          <input type = "checkbox"> 제주도 <br/>
           </div>
         
-          목적 </br>
+          목적 <br/>
           <div class = "detail">
-          <input type = "checkbox"> 취업 </br>
-          <input type = "checkbox"> 금액 </br>
-          <input type = "checkbox"> 주거 </br>
-          <input type = "checkbox"> 교육 </br>
-          <input type = "checkbox"> 의료 </br>
-          <input type = "checkbox"> 문화 </br>
+          <input type = "checkbox"> 취업 <br/>
+          <input type = "checkbox"> 금액 <br/>
+          <input type = "checkbox"> 주거 <br/>
+          <input type = "checkbox"> 교육 <br/>
+          <input type = "checkbox"> 의료 <br/>
+          <input type = "checkbox"> 문화 <br/>
           </div> 
-          기타 </br>
+          기타 <br/>
           <div class = "detail">
-          <input type = "checkbox"> 저소득층 </br>
-          <input type = "checkbox"> 임산부 </br>
-          <input type = "checkbox"> 장애인 </br>
+          <input type = "checkbox"> 저소득층 <br/>
+          <input type = "checkbox"> 임산부 <br/>
+          <input type = "checkbox"> 장애인 <br/>
+  <data-index-page :check-list="checkedAge"/>
+  
+ 
           </div> 
         </form> 
       </div>
 
       <div id = "next">
-        <router-view/>
+        <router-view v-bind:checkArray="checkedAge" />
       </div>
     
    
 
   </div>
 </template>
+
+<script>
+
+export default {
+    name:"app",
+   data() {
+     return{
+      checkedAge: [],
+
+     }
+  }
+}
+</script>
 
 
 <style>
@@ -132,8 +154,7 @@
   width : 150px;
 }
 #next{
-  width : 1300px;
-  height : 960px;
+ 
   margin-left: 175px;
   background-color : #F2F2F2;
   

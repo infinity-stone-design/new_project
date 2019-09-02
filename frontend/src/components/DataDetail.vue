@@ -16,20 +16,20 @@
         <content id="content">
           <tr>
               <c id="detail">세부페이지<링크></c>
-         <br></br>
+         <br/>
          <span>{{d.subtitle}}</span>
           <c style="font-size:1px">
-         <br></br>
+         <br/>
          </c>
         <span>{{d.target}}</span>
-         <br></br>
+         <br/>
          <span>{{d.contents}}</span>
-        <br></br>
+        <br/>
          <span>{{d.how}}</span>
-         <br></br>
-         <br></br>
-         <br></br>
-         <br></br>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
         </tr>
         </content>
         
