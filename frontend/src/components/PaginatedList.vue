@@ -68,24 +68,24 @@ export default {
   
       if (listLeng % listSize > 0) page += 1; 
       return page; 
-      }, 
-      searchFilter(){
-        return this.listArray.filter(data => {
-          return data.title.toLowerCase().includes(this.message.toLowerCase())
-        })
-      },
-    filteredList() {
-      if(this.checkArray.length==0) return this.listArray;   
+    }, 
+    searchFilter(){
       return this.listArray.filter(data => {
-      var result=null;
-      let i=0;
-      while(i<this.checkArray.length)
-      {
-        result+=data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
-        i++
-      }
-          return result;
-        });
+        return data.title.toLowerCase().includes(this.message.toLowerCase())
+      })
+    },
+    filteredList() {
+      if(this.checkArray.length==0) return this.searchFilter;   
+      
+      return this.searchFilter.filter(data => {
+        var result=null;
+        let i=0;
+        while(i<this.checkArray.length){
+          result+=data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
+          i++
+        }
+        return result;
+      });
     },
     paginatedData () { 
       const start = this.pageNum * this.pageSize, 
