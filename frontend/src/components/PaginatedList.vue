@@ -1,7 +1,7 @@
 <template>
 
 <table>
- 
+ <span>총 {{totalNum}}건의 결과가 있습니다.</span>
  <tr v-for="d in paginatedData" :key="d.id">
     <table class = "table">
       <tr>
@@ -61,8 +61,11 @@ export default {
     } 
   }, 
   computed: { 
+    totalNum(){
+      return this.filteredList.length;
+    },
     pageCount () { 
-      let listLeng = this.listArray.length, 
+      let listLeng = this.filteredList.length, 
       listSize = this.pageSize, 
       page = Math.floor(listLeng / listSize); 
   
@@ -71,7 +74,12 @@ export default {
     }, 
     searchFilter(){
       return this.listArray.filter(data => {
-        return data.title.toLowerCase().includes(this.message.toLowerCase())
+        var result = null;
+        result += data.title.toLowerCase().includes(this.message.toLowerCase())
+        result += data.subtitle.toLowerCase().includes(this.message.toLowerCase())
+        result += data.target.toLowerCase().includes(this.message.toLowerCase())
+        result += data.contents.toLowerCase().includes(this.message.toLowerCase())
+        return result
       })
     },
     filteredList() {
@@ -81,7 +89,10 @@ export default {
         var result=null;
         let i=0;
         while(i<this.checkArray.length){
-          result+=data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
+          result += data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
+          result += data.subtitle.toLowerCase().includes(this.checkArray[i].toLowerCase())
+          result += data.target.toLowerCase().includes(this.checkArray[i].toLowerCase())
+          result += data.contents.toLowerCase().includes(this.checkArray[i].toLowerCase())
           i++
         }
         return result;
