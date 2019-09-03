@@ -22,7 +22,7 @@
         <form id = "form">
           연령 <br/>
           <div class = "detail">
-          <input type = "checkbox" id="영유아" value="영유아" v-model="checkedAge">
+          <input type = "checkbox" id="영유아" value= "영유아" v-model="checkedAge">
           <label for="영유아"> 영유아 </label>
            <br/>
           <input type = "checkbox" id="청소년" value="청소년" v-model="checkedAge"> 
@@ -59,25 +59,25 @@
           <label for="경기"> 경기도 </label>
           <br/>
           <input type = "checkbox" id="충청북" value="충청북" v-model="checkedAge">
-          <label for="충청북"> 충청북도 </label>
+          <label for="충북"> 충청북도 </label>
           <br/>
           <input type = "checkbox" id="충청남" value="충청남" v-model="checkedAge">
-          <label for="충청남"> 충청남도 </label>
+          <label for="충남"> 충청남도 </label>
           <br/>
           <input type = "checkbox" id="강원" value="강원" v-model="checkedAge">
           <label for="강원"> 강원도 </label>
           <br/>
           <input type = "checkbox" id="경상북" value="경상북" v-model="checkedAge">
-          <label for="경상북"> 경상북도 </label>
+          <label for="경북"> 경상북도 </label>
           <br/>
           <input type = "checkbox" id="경상남" value="경상남" v-model="checkedAge">
-          <label for="경상남"> 경상남도 </label>
+          <label for="경남"> 경상남도 </label>
           <br/>
           <input type = "checkbox" id="전라북" value="전라북" v-model="checkedAge">
-          <label for="전라북"> 전라북도 </label>
+          <label for="전북"> 전라북도 </label>
           <br/>
           <input type = "checkbox" id="전라남" value="전라남" v-model="checkedAge">
-          <label for="전라남"> 전라남도 </label>
+          <label for="전남"> 전라남도 </label>
           <br/>
           <input type = "checkbox" id="제주" value="제주" v-model="checkedAge">
           <label for="제주"> 제주도 </label>
@@ -90,7 +90,7 @@
           <label for="취업"> 취업 </label>
           <br/>
           <input type = "checkbox" id="금전" value="금전" v-model="checkedAge">
-          <lable for="금액"> 금전 </lable>
+          <lable for="금전"> 금전 </lable>
           <br/>
           <input type = "checkbox" id="주거" value="주거" v-model="checkedAge">
           <label for="주거"> 주거 </label>
@@ -101,7 +101,7 @@
           <input type = "checkbox" id="의료" value="의료" v-model="checkedAge">
           <label for="의료"> 의료 </label>
           <br/>
-          <input type = "checkbox" id="문황" value="문화" v-model="checkedAge">
+          <input type = "checkbox" id="문화" value="문화" v-model="checkedAge">
           <label for="문화"> 문화 </label>
           <br/>
           </div> 

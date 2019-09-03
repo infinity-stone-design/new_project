@@ -71,7 +71,103 @@ export default {
   
       if (listLeng % listSize > 0) page += 1; 
       return page; 
-    }, 
+    },
+    addArray(){
+      let arr = []
+      for(var i = 0; i<this.checkArray.length; i++){
+        if(this.checkArray[i] == "영유아"){
+          arr.push("유아")
+          arr.push("어린이")
+          arr.push("유치원")
+          arr.push("아이")
+          arr.push("아동")
+          arr.push("가정")
+          arr.push("양육")
+        }
+        if(this.checkArray[i] == "청소년"){
+          arr.push("학생")
+          arr.push("가정")
+          arr.push("청소년")
+          arr.push("학교")
+          arr.push("장학")
+          arr.push("고시")
+        }
+        if(this.checkArray[i] == "청년"){
+          arr.push("학생")
+          arr.push("결혼")
+          arr.push("취업")
+          arr.push("학교")
+          arr.push("장학")
+          arr.push("자녀")
+          arr.push("고시")
+          arr.push("창업")
+          arr.push("청년")
+        }
+        if(this.checkArray[i] == "노인"){
+          arr.push("노인")
+          arr.push("실버")
+          arr.push("유공자")
+          arr.push("노후")
+          arr.push("연금")
+          arr.push("노년")
+        }
+        if(this.checkArray[i] == "저소득층"){
+          arr.push("저소득층")
+          arr.push("기초")
+        }
+        if(this.checkArray[i] == "임산부"){
+          arr.push("임산부")
+          arr.push("임신")
+          arr.push("해산")
+          arr.push("출산")
+          arr.push("신생아")
+          arr.push("산부인과")
+          arr.push("아기")
+          arr.push("낙태")
+        }
+        if(this.checkArray[i] == "장애인"){
+          arr.push("장애")
+        }
+        if(this.checkArray[i] == "취업"){
+          arr.push("취업")
+          arr.push("일자리")
+        }
+        if(this.checkArray[i] == "금전"){
+          arr.push("금전")
+          arr.push("만원")
+          arr.push("경제")
+          arr.push("장학")
+        }
+        if(this.checkArray[i] == "주거"){
+          arr.push("주거")
+          arr.push("주택")
+          arr.push("집")
+        }
+        if(this.checkArray[i] == "교육"){
+          arr.push("교육")
+          arr.push("장학")
+          arr.push("프로그램")
+          arr.push("학습")
+          arr.push("학교")
+        }
+        if(this.checkArray[i] == "의료"){
+          arr.push("의료")
+          arr.push("진찰")
+          arr.push("보건")
+          arr.push("진단")
+          arr.push("검사")
+        }
+        if(this.checkArray[i] == "문화"){
+          arr.push("문화")
+          arr.push("박물관")
+          arr.push("미술")
+          arr.push("도서")
+          arr.push("음악")
+          arr.push("공연")
+        }  
+      }
+      return arr;
+    },
     searchFilter(){
       return this.listArray.filter(data => {
         var result = null;
@@ -83,16 +179,16 @@ export default {
       })
     },
     filteredList() {
-      if(this.checkArray.length==0) return this.searchFilter;   
+      if(this.addArray.length==0) return this.searchFilter;   
       
       return this.searchFilter.filter(data => {
         var result=null;
         let i=0;
-        while(i<this.checkArray.length){
-          result += data.title.toLowerCase().includes(this.checkArray[i].toLowerCase())
-          result += data.subtitle.toLowerCase().includes(this.checkArray[i].toLowerCase())
-          result += data.target.toLowerCase().includes(this.checkArray[i].toLowerCase())
-          result += data.contents.toLowerCase().includes(this.checkArray[i].toLowerCase())
+        while(i<this.addArray.length){
+          result += data.title.toLowerCase().includes(this.addArray[i].toLowerCase())
+          result += data.subtitle.toLowerCase().includes(this.addArray[i].toLowerCase())
+          result += data.target.toLowerCase().includes(this.addArray[i].toLowerCase())
+          result += data.contents.toLowerCase().includes(this.addArray[i].toLowerCase())
           i++
         }
         return result;

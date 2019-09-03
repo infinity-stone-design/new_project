@@ -15,7 +15,8 @@
         </table>
         <content id="content">
           <tr>
-              <c id="detail">세부페이지<링크></c>
+              <li id="detail"><a v-bind:href ="link" target ="_blank">링크</a></li>
+              <!--<a v-bind:href ="link">링크</a>-->
          <br/>
          <span>{{d.subtitle}}</span>
           <c style="font-size:1px">
@@ -48,6 +49,7 @@
 
 
 export default {
+  
   created (){
     var id = this.$route.params.id
     this.$http.get('/api/datas/'+id)
@@ -60,7 +62,18 @@ export default {
       d: [],
     }
   },
-   
+  method:
+  {
+    open(){
+      window.open(this.d.url,'_blank')
+    }
+  },
+  computed:
+  {
+    link() {
+      return this.d.url
+    }
+  }
 }
 
 </script>
