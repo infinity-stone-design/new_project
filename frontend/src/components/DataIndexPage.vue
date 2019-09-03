@@ -48,6 +48,7 @@ export default {
       
     }
 }
+
 </script>
 
 <style>
@@ -62,5 +63,29 @@ export default {
   padding : 10px;
   background-color : white;
   margin-left : 50px;
+  font-weight:bold;
+
+}
+ a:link {
+	color: rgb(51, 172, 228, 0.808);
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+	color: rgb(44, 34, 102, 0.808);
+}
+
+a:hover {
+  text-decoration: none;
+	background-repeat: repeat-x;
+	background-position: 100% 100%;
+	padding-bottom: 3px;
+	color: rgb(9, 80, 172, 0.808);
+}
+
+a:active {
+  text-decoration: none;
 }
 </style>

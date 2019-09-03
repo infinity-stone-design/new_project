@@ -1,16 +1,16 @@
 <template>
 
 <table>
- <span>총 {{totalNum}}건의 결과가 있습니다.</span>
+ <span style="font-size:15pt; color: rgb(50, 99, 145); font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[전체 {{totalNum}}건]</span><br><br>
  <tr v-for="d in paginatedData" :key="d.id">
     <table class = "table">
       <tr>
         <router-link :to="{name: 'detail', params: {id: d.id}}">
-        <span>{{d.title}}</span>
+        <span id="tt">[{{d.id}}] {{d.title}}</span>
         </router-link>
       </tr>
       <tr>
-        <span>{{d.subtitle}}</span>
+        <span id="st">{{d.subtitle}}</span>
       </tr>
     </table>
   </tr>
@@ -164,6 +164,9 @@ export default {
           arr.push("도서")
           arr.push("음악")
           arr.push("공연")
+        }
+        else{
+          arr.push(this.checkArray[i]);
         }  
       }
       return arr;
@@ -217,4 +220,10 @@ export default {
  .btn-cover .page-count { 
     padding: 0 1rem; 
   } 
+  #tt{
+    font-size : 20px;
+  }
+  #st{
+    font-size : 15px;
+  }
 </style>

@@ -6,8 +6,8 @@ var connection = mysql.createConnection({
     host: '127.0.0.1',
     port: 3306,
     user: 'root',   
-    password: 'wjdtjd864@',
-    database: 'testdb'  
+    password: 'star74251!',
+    database: 'data'  
   }); 
   
   connection.connect(function (err) {   
@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
   });
 
 router.get('/', function (req, res, next) {
-    connection.query('SELECT * FROM testdb.data_table', function(err, datas, fields) {
+    connection.query('SELECT * FROM data.data_table', function(err, datas, fields) {
         if(!err){
           
           res.send(datas);
@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
     var id= parseInt(req.params.id, 10)
     console.log('dsds'+id)
-    connection.query('SELECT * FROM testdb.data_table WHERE id ="'+id+'"', function(err, print_data, fields) {
+    connection.query('SELECT * FROM data.data_table WHERE id ="'+id+'"', function(err, print_data, fields) {
         if(!err){
            
           console.log(print_data);

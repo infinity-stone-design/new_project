@@ -2,25 +2,28 @@
 
 <template>
   <div id="app">
+  <div>  
+    <img src = "./assets/1511.jpg" id = "bg">
+  </div>
     <div id = "top">
       <form id = "search">
         <router-link :to="{name: 'index'}"><img src = "./assets/logo.png" id = "logo"></router-link>
 
-        <input type = "text" v-model = "message" id = "text" placeholder="검색어 입력">
+        <input type = "text" v-model = "message" id = "text" placeholder="  검색어를 입력해주세요">
 
         <img src = "./assets/search.png" id = "img">
         
-        
+
       </form>
     </div>
       <div id = "side">
         <div id = "side_title">
-          <div style = "padding: 5px;">
-          필터링 목록
+          <div style = "padding: 10px;" align=left>
+          분류별 찾기
           </div>
-        </div>
+        </div><br>
         <form id = "form">
-          연령 <br/>
+          연령<br/>
           <div class = "detail">
           <input type = "checkbox" id="영유아" value= "영유아" v-model="checkedAge">
           <label for="영유아"> 영유아 </label>
@@ -31,6 +34,7 @@
           <input type = "checkbox" id="노인" value="노인" v-model="checkedAge"> 
           <label for ="노인"> 노인 </label>
            <br/>
+           ------------------------
           </div>
           지역 <br/>
           <div class = "detail">
@@ -82,8 +86,8 @@
           <input type = "checkbox" id="제주" value="제주" v-model="checkedAge">
           <label for="제주"> 제주도 </label>
           <br/>
+          ------------------------
           </div>
-        
           목적 <br/>
           <div class = "detail">
           <input type = "checkbox" id="취업" value="취업" v-model="checkedAge">
@@ -104,6 +108,7 @@
           <input type = "checkbox" id="문화" value="문화" v-model="checkedAge">
           <label for="문화"> 문화 </label>
           <br/>
+          ------------------------
           </div> 
           기타 <br/>
           <div class = "detail">
@@ -125,7 +130,7 @@
 
       <div id = "next">
         <router-view v-bind:checkArray="checkedAge" v-bind:message="message"/>
-
+        
       </div>
     
    
@@ -135,6 +140,11 @@
 
 <script>
 
+document.addEventListener("keydown",function(event){
+  if(event.keyCode === 13){
+    event.preventDefault();
+  }
+},true);
 
 export default {
     name:"app",
@@ -152,9 +162,17 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');
 
+#bg{
+  position : absolute; top:0; left:0;
+  opacity : 0.25;
+  width : 100%;
+  height : 100%;
+  z-index: -1;
+}
+
 #logo{
   position : relative;
-  right : 50px;
+  right : 10px;
   height : 70px;
   width : 150px;
 }
@@ -164,39 +182,45 @@ export default {
   height : 42px;
   top : -16px;
   left : -3px;
-  border : 2px solid #58ACFA;
+  border : 2px solid #3b78a3;
 }
 #search{
   margin-top : 50px;
 }
 .detail{
   font-size : 15px;
-  margin-left : 10px;
+  margin-left : 5px;
+  color : rgb(90, 91, 153);
+  font-weight:bold;
+  line-height: 25px;
 }
-#side_title{
-  background-color : white;
-  color : #58ACFA;
-  font-size : 25px;
-  border-bottom : 2px solid #BDBDBD;
-   width : 150px;
-   
-}
+
 #form{
- text-align: left;
+  margin-left:10px;
+  text-align: left;
   font-size: 20px;
-  line-height: 1.5em;
   width : 150px;
   height : 850px;
-  
+  color : rgb(81, 121, 156);
+  font-weight:bold;
+  line-height: 30px;
 }
+
+#side_title{
+  color : rgb(50, 99, 145);
+  font-size : 25px;
+  font-weight:bold;
+  border-bottom : 2px solid rgb(9, 80, 172, 0.808);
+  width : 160px; 
+}
+
 #side{
   width : 150px;
 }
 #top{
-  width : 1500px;
+  width : 1600px;
   height : 100px;
   text-align : center;
-  background-color : white;
 }
 
 #text{
@@ -204,18 +228,16 @@ export default {
   top : -35px;
   width : 450px;
   height : 40px;
-  border : 2px solid #58ACFA;
+  border : 2px solid #3b78a3;
 }
+
 #button{
   height : 37px;
   width : 150px;
 }
-#next{
- 
-  margin-left: 175px;
-  background-color : #F2F2F2;
-  
-}
 
+#next{
+  margin-left: 175px;
+}
 
 </style>
