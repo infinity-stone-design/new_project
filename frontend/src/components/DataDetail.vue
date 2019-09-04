@@ -1,3 +1,4 @@
+
 <!-- component -->
 <template>
 <table cellspacing = '10'>
@@ -10,7 +11,12 @@
       <tr>
         <table id='side'>
         <side id="side">
-         <a id="a">작성자 : 관리자</a>
+        
+        <div id = "listdiv">
+           <router-link :to="{name: 'index'}" id = "list"><img src="../assets/list_button.png" id = "listimg"></router-link>
+          <a id="a">
+           작성자 : 관리자</a>
+          </div>
         </side>
         </table>
         <hr size=2px noshade color=#BDBDBD></hr>
@@ -59,8 +65,6 @@
   
 </template>
 <script>
-
-
 export default {
   
   created (){
@@ -88,12 +92,22 @@ export default {
     }
   }
 }
-
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean');
 @import url('https://fonts.googleapis.com/css?family=Sunflower:300&display=swap&subset=korean');
 @import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
+#listimg{
+  widows: 25px;
+  height: 25px;
+}
+#list{
+  float : left;
+}
+#listdiv{
+  height : 12px;
+  
+}
 #title{
   font-family: 'Nanum Gothic', sans-serif;
   width : 1000px;
@@ -112,13 +126,12 @@ export default {
   width : 1000px;
    height : 25px;
   font-size : 15px;
-  text-align: right;
   padding : 10px;
   margin-left : 5px;
 }
 #a{
   font-family: 'Nanum Gothic', sans-serif;
-  width : 1000px;
+  float : right;
   font-size : 15px;
   margin-right : 20px;
   
@@ -135,25 +148,21 @@ export default {
    width : 500px;
   font-size : 23px;
   padding : 10px;
-
   word-break:keep-all;
 }
 #detail
 {
   font-size : 15px;
-
 }
  a:link {
      color: rgb(51, 172, 228, 0.808);
      white-space: nowrap;
      text-decoration: none;
   }
-
   a:visited {
      text-decoration: none;
      color: rgb(44, 34, 102, 0.808);
   }
-
   a:hover {
      text-decoration: none;
      background-repeat: repeat-x;
@@ -161,7 +170,6 @@ export default {
      padding-bottom: 3px;
      color: rgb(9, 80, 172, 0.808);
   }
-
   a:active {
      text-decoration: none;
   }

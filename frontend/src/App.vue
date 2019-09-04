@@ -218,7 +218,7 @@ export default {
   width : 150px;
 }
 #top{
-  width : 1600px;
+  width : 100%;
   height : 100px;
   text-align : center;
 }
